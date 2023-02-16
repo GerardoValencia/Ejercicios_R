@@ -13,3 +13,23 @@ trainTestSplit = floor(nrow(df)*0.7)
 train = df[1:trainTestSplit,]
 #Datos de prueba
 test = df[-(1:trainTestSplit),]
+
+
+#Cross validation
+
+dfTemp = iris
+nFolds = 5
+
+sizeTest = nrow(dfTemp)/nFolds
+sizeTrain = nrow(dfTemp)-sizeTest
+indicesDFTrain = matrix(nrow = sizeTrain, ncol = nFolds)
+indicesDFTest = matrix(nrow = sizeTest, ncol = nFolds)
+indDF = seq(1,nrow(dfTemp))
+
+for (i in 1:nFolds){
+  inicioTest = ((nFolds-i)*sizeTest)+1
+  indicesDFTest[,i] = seq(inicioTest, (inicioTest-1 + sizeTest))
+
+  indicesDFT = indDF[-indicesDFTest[,i]]
+  indicesDFTrain[,i] = indicesDFT
+}
