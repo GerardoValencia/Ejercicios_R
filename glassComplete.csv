@@ -1,0 +1,8 @@
+﻿# instancia prueba,clase asignada,clase real,Comparativa,,,,build wind float,build wind non-float,containers,headlamps,tableware,vehic wind float
+1,build wind non-float,build wind non-float,1,,,build wind float,4,5,0,0,0,5
+2,vehic wind float,build wind float,0,,,build wind non-float,0,11,1,0,0,2
+3,headlamps,headlamps,1,,,containers,0,0,2,0,0,0
+4,build wind non-float,build wind float,0,,,headlamps,0,0,0,4,1,0
+5,tableware,headlamps,0,,,tableware,0,0,1,0,3,0
+…,…,…,…,,,vehic wind float,0,0,0,0,0,4
+43,tableware,tableware,1,,,,,,,,,
