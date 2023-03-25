@@ -62,6 +62,9 @@ for(i in 1:nrow(df.test))
 cbind(clase.asignada,(df.test[,'Type']))
 table(clase.asignada, (df.test[,'Type']))
 
+
+
+
 var1<-factor(clase.asignada, levels= c('build wind float', 'build wind non-float', 'tableware', 'vehic wind float'))
 var2<-factor(df.test[,'Type'], levels= c('build wind float', 'build wind non-float', 'tableware', 'vehic wind float'))
 confusionMatrix(var1,var2)

@@ -1,0 +1,22 @@
+library(AmesHousing)
+
+# Cargar el conjunto de datos de Ames
+ames = AmesHousing::make_ames()
+
+# Seleccionar las primeras 15 filas
+ames_subset <- ames[1:15,]
+ames_subset2 <- ames[16:20,]
+
+# Realizar la regresión lineal múltiple
+model2 <- lm(Sale_Price ~ Gr_Liv_Area + Year_Built + Total_Bsmt_SF, data = ames_subset)
+summary(model2)
+
+df_train = cbind(ames_subset[1:15, "Gr_Liv_Area"], ames_subset[1:15, "Year_Built"], ames_subset[1:15, "Total_Bsmt_SF"], ames_subset[1:15, "Sale_Price"])
+df_test = cbind(ames_subset2[1:5, "Gr_Liv_Area"], ames_subset2[1:5, "Year_Built"], ames_subset2[1:5, "Total_Bsmt_SF"], ames_subset2[1:5, "Sale_Price"])
+
+
+
+pred1 = predict(model2, df_test)
+real = ames_subset2[1:5, "Sale_Price"]
+plot(pred1, col = "black", ylim = c(0, 550000))
+points(real, col = "red")
