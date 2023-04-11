@@ -49,14 +49,13 @@ predictions = predict(model3, newdata = test.features)
 # RMSE
 sqrt(mean((test.target - predictions)^2))
 
+df = cbind(predictions, test.target)
+write.table(df, file = "RMSECalcular.txt", sep = "\t", eol = "\n")
+
 # R2
 cor(test.target, predictions) ^ 2
 
 ### CROSS-VALIDATION
-
-df = cbind(predictions, test.target)
-write.table(df, file = "RMSECalcular.txt", sep = "\t", eol = "\n")
-
 set.seed(1)
 ctrl <- trainControl(
   method = "cv",

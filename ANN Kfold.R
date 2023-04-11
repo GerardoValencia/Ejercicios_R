@@ -39,7 +39,7 @@ plot(NN)
 
 ## Prediction using neural network
 
-predict_testNN = compute(NN, testNN[,c(1:5)])
+predict_testNN = neuralnet::compute(NN, testNN[,c(1:5)])
 predict_testNN = (predict_testNN$net.result * (max(data$rating) - min(data$rating))) + min(data$rating)
 
 plot(datatest$rating, predict_testNN, col='blue', pch=16, ylab = "predicted rating NN", xlab = "real rating")
